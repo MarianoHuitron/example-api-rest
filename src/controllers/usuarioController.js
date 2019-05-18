@@ -1,3 +1,6 @@
+// requiere el modelo
+
+
 const Usuario = require('../models/usuarioModel');
 
 module.exports = {
@@ -7,13 +10,9 @@ module.exports = {
     },
 
     nuevoUsuario: async (req, res, next) => {
-        if(Object.keys(req.body).length === 0) {
-            res.send('Parametros no recividos')
-        } else {
-            const nuevoUsuario = new Usuario(req.body);
-            const usuario = await nuevoUsuario.save();
-            res.status(200).json(usuario);
-        }      
+        const nuevoUsuario = new Usuario(req.body);
+        const usuario = await nuevoUsuario.save();
+        res.status(200).json(usuario);    
     },
 
     getUser: async (req,res,next) => {
@@ -36,4 +35,3 @@ module.exports = {
     }
 };
 
-// hola

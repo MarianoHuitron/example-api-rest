@@ -7,13 +7,9 @@ module.exports = {
     },
 
     nuevoProducto: async (req,res,next) => {
-        if(Object.keys(req.body).length === 0) {
-            res.send('Parametros no recividos');
-        } else {
-            const nuevoProducto = new Producto(req.body);
-            const producto = await nuevoProducto.save();
-            res.status(200).json(producto);
-        }
+        const nuevoProducto = new Producto(req.body);
+        const producto = await nuevoProducto.save();
+        res.status(200).json(producto);
     },
 
     getProduct: async (req,res,next) => {
@@ -31,6 +27,8 @@ module.exports = {
 
     deleteProduct: async (req,res,next) => {
         const { productId } = req.params;
+        console.log(productId)
+        console.log('-----------------------')
         await Producto.findByIdAndRemove(productId);
         res.status(200).json({success: true});
     }

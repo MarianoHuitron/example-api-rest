@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/tienda-rest-api', {
   .catch(err => console.log(err));
 
 // settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 
 
 // middlewares

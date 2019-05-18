@@ -12,6 +12,6 @@ router.get('/',index);
 router.get('/:productId', getProduct);
 router.post('/',nuevoProducto);
 router.put('/:productId', updateProducto);
-router.delete('/:produtId', deleteProduct);
+router.delete('/:productId', deleteProduct);
 
 module.exports = router;
